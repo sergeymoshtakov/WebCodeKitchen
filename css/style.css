@@ -1,0 +1,12 @@
+.calculator-section{
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.digit-text{
+    width: 30px;
+    text-align: center;
+}
