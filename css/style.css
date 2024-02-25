@@ -29,7 +29,16 @@ main{
     text-align: center;
 }
 
+.digit-text{
+    padding: 5px 10px;
+}
+
+#signs{
+    padding: 5px 10px
+} 
+
 .calculate-button{
+    padding: 10px;
     font-weight: bold;
     color: white;
     background-color: purple;
