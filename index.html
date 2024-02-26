@@ -24,7 +24,17 @@
                 <p> = </p>
                 <input type="text" class="digit-text" readonly id="result-digit" value="0">
             </div>
-            <button class="calculate-button" onclick="calculate()">calculate</button>
+            <button class="calculate-button" onclick="calculate()">Calculate</button>
+            <div class="logarithm-section">
+                <p>Logarithm: </p>
+                <label for="log-number">Number: </label>
+                <input type="text" id="log-number" class="digit-text">
+                <label for="log-base">Base: </label>
+                <input type="text" id="log-base" class="digit-text">
+                <p> = </p>
+                <input type="text" class="digit-text" readonly id="log-result" value="0">
+            </div>
+            <button class="calculate-button" onclick="calculateLogorithm()">Calculate logorithm</button>
         </main>
         <footer>
             <p>&copy; 2024 Simple calculator. All rights reserved.</p>
