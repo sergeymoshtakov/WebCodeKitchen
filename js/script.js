@@ -1,32 +1,20 @@
 // calculator functions
 
-function add(left, right){
-    return left + right;
-}
+const add = left => right => left + right;
 
-function substract(left, right){
-    return left - right;
-}
+const substract = left => right => left - right;
 
-function multiply(left, right){
-    return left * right;
-}
+const multiply = left => right => left * right;
 
-function devide(left, right){
-    if(right != 0){
-        return left / right;
-    }
-    else{
-        alert("Denominaton can not be 0");
-    }
-}
+const devide = left => right => right != 0 ? left / right : alert("Denominaton can not be 0");
+
 
 function mod(left, right) {
     if (right === 0) {
         alert("Module cannot be zero");
         return;
     }
-
+    // EXTERNAL (chat gpt solution)
     if (left >= 0 && right > 0) {
         return left % right;
     } else if (left < 0 && right > 0) {
@@ -36,11 +24,10 @@ function mod(left, right) {
     } else if (left < 0 && right < 0) {
         return ((left % right) - right) % right;
     }
+    // EXTERNAL
 }
 
-function pow(left, right){
-    return Math.pow(left, right);
-}
+const pow = left => right => Math.pow(left, right);
 
 // main function
 
