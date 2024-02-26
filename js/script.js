@@ -33,7 +33,7 @@ const log = base => number => Math.log(number) / Math.log(base);
 
 // main function
 
-function calculate() {
+const calculate = () => {
     var left = document.getElementById('left-digit');
     var right = document.getElementById('right-digit');
 
@@ -62,7 +62,7 @@ function calculate() {
         result.value = devide(leftDigit)(rightDigit);
     }
     else if(sign === "mod"){
-        result.value = mod(leftDigit)(rightDigit);
+        result.value = mod(leftDigit, rightDigit);
     }
     else{
         result.value = pow(leftDigit)(rightDigit);
@@ -71,7 +71,7 @@ function calculate() {
 
 // Logorithm function
 
-function calculateLogorithm() {
+const calculateLogorithm = () => {
     var base = document.getElementById('log-base');
     var number = document.getElementById('log-number');
 
@@ -101,4 +101,81 @@ function calculateLogorithm() {
 
     var result = document.getElementById('log-result');
     result.value = log(baseDigit)(numberDigit);
+}
+
+// Imaginary numbers class
+class ImaginaryNumber {
+    constructor(real, imaginary) {
+        this.real = real;
+        this.imaginary = imaginary;
+    }
+
+    add = other => new ImaginaryNumber(add(this.real)(other.real), add(this.imaginary)(other.imaginary));
+
+    substract(other) {      
+        return new ImaginaryNumber(substract(this.real)(other.real), substract(this.imaginary)(other.imaginary));
+    }
+
+    multiply(other) {   
+        return new ImaginaryNumber(
+            multiply(this.real)(other.real) - multiply(this.imaginary)(other.imaginary), 
+            multiply(this.real)(other.imaginary) + multiply(this.imaginary)(other.real)
+        );
+    }
+
+    devide(other) {
+        let denominator = add(pow(other.real)(2))(pow(other.imaginary)(2));
+        return new ImaginaryNumber(
+            add(multiply(this.real)(other.real))(multiply(this.imaginary)(other.imaginary)) / denominator, 
+            substract(multiply(this.imaginary)(other.real))(multiply(this.real)(other.imaginary)) / denominator
+        );
+    }
+}
+
+// Imaginary numbers function
+
+const calculateImaginaryNumbers = () => {
+    var leftReal = document.getElementById('real-part-one');
+    var leftImaginary = document.getElementById('imaginary-part-one');
+    var rightReal = document.getElementById('real-part-two');
+    var rightImaginary = document.getElementById('imaginary-part-two');
+
+    // checking the right input
+    if(isNaN(leftReal.value) || isNaN(leftImaginary.value) || isNaN(rightReal.value) || isNaN(rightImaginary.value)){
+        alert("Values must be numerical");
+        leftReal.value = "";
+        leftImaginary.value = "";
+        rightReal.value = "";
+        rightImaginary.value = "";
+    }
+    // checking the right input
+
+    var leftRealDigit = parseFloat(leftReal.value);
+    var leftImaginaryDigit = parseFloat(leftImaginary.value);
+    var rightRealDigit = parseFloat(rightReal.value);
+    var rightImaginaryDigit = parseFloat(rightImaginary.value);
+
+    var sign = document.getElementById('imaginary-signs').value;
+
+    var resultReal = document.getElementById('real-part-result');
+    var resultImaginary = document.getElementById('imaginary-part-result');
+
+    var result = new ImaginaryNumber(leftRealDigit, leftImaginaryDigit);
+    var other = new ImaginaryNumber(rightRealDigit, rightImaginaryDigit);
+
+    if(sign === "+"){
+        result = result.add(other);
+    }
+    else if(sign === "-"){
+        result = result.substract(other);
+    }
+    else if (sign === "*"){
+        result = result.multiply(other);
+    }
+    else{
+        result = result.devide(other);
+    }
+
+    resultReal.value = result.real;
+    resultImaginary.value = result.imaginary;
 }

@@ -35,6 +35,20 @@
                 <input type="text" class="digit-text" readonly id="log-result" value="0">
             </div>
             <button class="calculate-button" onclick="calculateLogorithm()">Calculate logorithm</button>
+            <div class="imaginary-numbers-section">
+                <p>Imaginary numbers: </p>
+                <p>(<span><input type="text" class="digit-text" id="real-part-one"></span>  <span><input type="text" class="digit-text" id="imaginary-part-one"></span> i)</p>
+                <select id="imaginary-signs">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                </select>
+                <p>(<span><input type="text" class="digit-text" id="real-part-two"></span>  <span><input type="text" class="digit-text" id="imaginary-part-two"></span> i)</p>
+                <p> = </p>
+                <p>(<span><input type="text" class="digit-text" readonly id="real-part-result"></span>  <span><input type="text" class="digit-text" readonly id="imaginary-part-result"></span> i)</p>
+            </div>
+            <button class="calculate-button" onclick="calculateImaginaryNumbers()">Calculate imaginary numbers</button>
         </main>
         <footer>
             <p>&copy; 2024 Simple calculator. All rights reserved.</p>

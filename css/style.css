@@ -3,19 +3,15 @@
     margin: 0;
 }
 
-.calculator-section{
-    height: 50px;
+.calculator-section, .imaginary-numbers-section, .logarithm-section{
     display: flex;
     flex-direction: row;
     gap: 10px;
     align-items: center;
 }
 
-.logarithm-section{
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    align-items: center;
+.calculator-section, .imaginary-numbers-section{
+    height: 50px;
 }
 
 header{
@@ -40,7 +36,7 @@ main{
     padding: 5px 10px;
 }
 
-#signs{
+#signs, #imaginary-signs{
     padding: 5px 10px
 } 
 
