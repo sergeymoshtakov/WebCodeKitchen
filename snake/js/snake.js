@@ -42,14 +42,18 @@ function changeDirection(orientation) {
 */
 function safeGetElementById(id) {
     const result = document.getElementById(id);
-    return result === null; // todo: your code here
+    return result === null ? Left("Element not found") : Right(result);
 }
 
 const log = s => console.log(s);
 
 function start() {
 
-    // todo: if safeGetElementById("canvas") yields an error message, log it. Otherwise startWithCanvas
+    const result = safeGetElementById("canvas");
+    either(result)(
+        error => log(error),
+        canvas => startWithCanvas(canvas)
+    );
 
 }
 
@@ -80,8 +84,8 @@ function nextBoard() {
     const max = 20;
     const oldHead = snake[0];
 
-    const newHead = undefined; // todo: your code here: old head plus direction
-    const head    = undefined; // todo: your code here: new head put in bounds
+    const newHead = pairPlus(oldHead)(direction); // todo: your code here: old head plus direction
+    const head    = Pair(inBounds(newHead(fst)))(inBounds(newHead(snd))); // todo: your code here: new head put in bounds
 
     const pickRandom = () => Math.floor(Math.random() * max);
     if (true) {  // todo: have we found any food?
