@@ -180,12 +180,15 @@ const calculateImaginaryNumbers = () => {
     resultImaginary.value = result.imaginary;
 }
 
-// Vecors
+// Vectors
 const vector = x => y => f => f(x)(y);
 const fst = x => y => x;
 const snd = x => y => y;
 
-// testing
+// small testing
 // var v1 = vector(2)(1);
 // console.log(v1(fst));
 // console.log(v1(snd));
+
+// Calculate vectors function
+const calculateVectors = () => {}

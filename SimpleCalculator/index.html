@@ -49,6 +49,30 @@
                 <p>(<span><input type="text" class="digit-text" readonly id="real-part-result"></span>  <span><input type="text" class="digit-text" readonly id="imaginary-part-result"></span> i)</p>
             </div>
             <button class="calculate-button" onclick="calculateImaginaryNumbers()">Calculate imaginary numbers</button>
+            <div class="vectors-section">
+                <p>Vectors: </p>
+                <p>( <span>
+                    <div class="vector">
+                        <input type="text" class="digit-text" id="v1-x">
+                        <input type="text" class="digit-text" id="v1-y">
+                    </div>
+                </span> )</p>
+                <select id="vectors-signs"></select>
+                <p>( <span>
+                    <div class="vector">
+                        <input type="text" class="digit-text" id="v2-x">
+                        <input type="text" class="digit-text" id="v2-y">
+                    </div>
+                </span> )</p>
+                <p> = </p>
+                <p>( <span>
+                    <div class="vector">
+                        <input type="text" class="digit-text" id="vAnsw-x">
+                        <input type="text" class="digit-text" id="vAnsw-x">
+                    </div>
+                </span> )</p>
+            </div>
+            <button class="calculate-button" onclick="calculateVectors()">Calculate vectors</button>
         </main>
         <footer>
             <p>&copy; 2024 Simple calculator. All rights reserved.</p>
