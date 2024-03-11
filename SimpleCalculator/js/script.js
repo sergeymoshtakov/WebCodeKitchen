@@ -103,7 +103,7 @@ const calculateLogorithm = () => {
     result.value = log(baseDigit)(numberDigit);
 }
 
-// Imaginary numbers class
+// Complex numbers class
 class ImaginaryNumber {
     constructor(real, imaginary) {
         this.real = real;
@@ -132,7 +132,7 @@ class ImaginaryNumber {
     }
 }
 
-// Imaginary numbers function
+// Complex numbers function
 
 const calculateImaginaryNumbers = () => {
     var leftReal = document.getElementById('real-part-one');
@@ -179,3 +179,13 @@ const calculateImaginaryNumbers = () => {
     resultReal.value = result.real;
     resultImaginary.value = result.imaginary;
 }
+
+// Vecors
+const vector = x => y => f => f(x)(y);
+const fst = x => y => x;
+const snd = x => y => y;
+
+// testing
+// var v1 = vector(2)(1);
+// console.log(v1(fst));
+// console.log(v1(snd));
