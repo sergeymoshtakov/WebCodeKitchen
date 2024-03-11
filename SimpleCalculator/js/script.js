@@ -195,4 +195,42 @@ const addVectors = a => b => vector(a(fst) + b(fst))(a(snd) + b(snd));
 const substractVectors = a => b => vector(a(fst) - b(fst))(a(snd) - b(snd));
 
 // Calculate vectors function
-const calculateVectors = () => {}
+const calculateVectors = () => {
+    var leftX = document.getElementById('v1-x').value;
+    var leftY = document.getElementById('v1-y').value;
+
+    var rightX = document.getElementById('v2-x').value;
+    var rightY = document.getElementById('v2-y').value;
+
+    if(isNaN(leftX) || isNaN(leftY) || isNaN(rightX) || isNaN(rightY)){
+        alert("Values must be numerical!");
+        document.getElementById('v1-x').value = "";
+        document.getElementById('v1-y').value = "";
+        document.getElementById('v2-x').value = "";
+        document.getElementById('v2-y').value = "";
+    }
+
+    leftX = parseFloat(leftX);
+    leftY = parseFloat(leftY);
+    rightX = parseFloat(rightX);
+    rightY = parseFloat(rightY);
+
+    var sign = document.getElementById('vectors-signs').value;
+
+    var left = vector(leftX)(leftY);
+    var right = vector(rightX)(rightY);
+    var result = vector(0)(0);
+
+    if(sign === "+"){
+        result = addVectors(left)(right);
+    }
+    else if(sign === "-"){
+        result = substractVectors(left)(right);
+    }
+
+    var resultX = document.getElementById('vAnsw-x');
+    var resultY = document.getElementById('vAnsw-y');
+
+    resultX.value = result(fst);
+    resultY.value = result(snd);
+}
