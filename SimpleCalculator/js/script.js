@@ -193,6 +193,7 @@ const snd = x => y => y;
 // vector functions
 const addVectors = a => b => vector(a(fst) + b(fst))(a(snd) + b(snd));
 const substractVectors = a => b => vector(a(fst) - b(fst))(a(snd) - b(snd));
+const multiplyVectors = a => b => vector(a(fst) * b(fst) + a(snd) * b(snd))("");
 
 // Calculate vectors function
 const calculateVectors = () => {
@@ -226,6 +227,9 @@ const calculateVectors = () => {
     }
     else if(sign === "-"){
         result = substractVectors(left)(right);
+    }
+    else if(sign === "*"){
+        result = multiplyVectors(left)(right);
     }
 
     var resultX = document.getElementById('vAnsw-x');
