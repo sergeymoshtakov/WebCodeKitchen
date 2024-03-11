@@ -190,5 +190,9 @@ const snd = x => y => y;
 // console.log(v1(fst));
 // console.log(v1(snd));
 
+// vector functions
+const addVectors = a => b => vector(a(fst) + b(fst))(a(snd) + b(snd));
+const substractVectors = a => b => vector(a(fst) - b(fst))(a(snd) - b(snd));
+
 // Calculate vectors function
 const calculateVectors = () => {}
