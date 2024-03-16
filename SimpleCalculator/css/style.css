@@ -9,6 +9,9 @@
     flex-direction: row;
     gap: 10px;
     align-items: center;
+    padding: 10px;
+    border: 1px black solid;
+    border-radius: 10%;
 }
 
 .calculator-section, .imaginary-numbers-section{
@@ -20,7 +23,7 @@ header{
     padding: 10px;
     text-align: center;
     color: white;
-    background-color: slateblue;
+    background-color: rgb(255, 170, 0);
 }
 
 main{
@@ -46,7 +49,7 @@ main{
     margin: 10px 0;
     font-weight: bold;
     color: white;
-    background-color: purple;
+    background-color: rgb(255, 170, 0);
 }
 
 .vector{
@@ -61,6 +64,6 @@ footer{
     width: 100%;
     padding: 20px;
     color: white;
-    background-color: slateblue;
+    background-color: rgb(255, 170, 0);
     text-align: center;
 }
