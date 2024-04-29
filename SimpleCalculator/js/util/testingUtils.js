@@ -5,4 +5,5 @@ const test = name => bool => {
     } else {
         str += " not passed";
     }
+    document.writeln(str);
 }

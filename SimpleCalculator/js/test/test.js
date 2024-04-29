@@ -1,0 +1,1 @@
+test("Addition of 1 to 2 ")(add(1)(2) === 3);
