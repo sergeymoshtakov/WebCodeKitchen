@@ -72,7 +72,19 @@ for (const i of Iterator(startValue, whileFn, incrementFn)){
 const oddNumbers = () => Iterator(1, x => true, x => x + 2);
 const _x = Math.floor( 1 + Math.random() * 100);
 
-const collect = n => oddNumbers => [...oddNumbers].slice(0,n).reduce((a,b) => a + b);
+const collect = n => oddNumbers => {
+    let sum = 0;
+    let count = 0;
+    for (let num of oddNumbers) {
+        if (count < n) {
+            sum += num;
+            count++;
+        } else {
+            break;
+        }
+    }
+    return sum;
+};
 
 console.log(
     collect(3)(oddNumbers())  ===  9 && 
