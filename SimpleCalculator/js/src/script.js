@@ -375,8 +375,8 @@ const calculateSumFromTo = () => {
     var result = document.getElementById('fr-to-res').value;
 
     if(n > threshold){
-        result.value = collectForBig(n)(numGenerator);
+        result.value = collectForBig(n)(numGenerator());
     } else {
-        result.value = collectForSmall(numGenerator);
+        result.value = collectForSmall(numGenerator());
     }
 };
