@@ -34,12 +34,25 @@ test("Modus of 49 by 5 ")(mod(49, 5) === 4);
  */
 test("Pow of 7 by 2 ")(pow(7)(2) === 49);
 
-test("Sum of numbers from 1 to 10 ")(collect(10)(numsIterator(1, i => i <= 10, i => i + 1)) == 55);
+/**
+ * Tests the sum of numbers from 1 to 10.
+ * Expected result: 55
+ */
+test("Sum of numbers from 1 to 10")(collect(10)(numsIterator(1, i => i <= 10, i => i + 1)) == 55);
 
-test("Sum of numbers from 1 to 100 ")(collect(10)(numsIterator(1, i => i <= 100, i => i + 1)) == 5050);
+/**
+ * Tests the sum of numbers from 1 to 100.
+ * Note: The test should use 100 as the number of elements to sum, not 10.
+ * Expected result: 5050
+ */
+test("Sum of numbers from 1 to 100")(collect(100)(numsIterator(1, i => i <= 100, i => i + 1)) == 5050);
 
 const rangeMin = 1;
 const rangeMax = 100;
 const { smaller, greater } = generateTwoRandomNumbers(rangeMin, rangeMax);
 
-test(`Sum of numbers from ${smaller} to ${greater} `)(collect(greater)(numsIterator(smaller, i => i <= greater, i => i + 1)) == GaussSum(smaller, greater));
+/**
+ * Tests the sum of numbers from a randomly generated smaller number to a greater number.
+ * Expected result: The sum calculated using Gauss's formula.
+ */
+test(`Sum of numbers from ${smaller} to ${greater}`)(collect(greater - smaller + 1)(numsIterator(smaller, i => i <= greater, i => i + 1)) == GaussSum(smaller, greater));
