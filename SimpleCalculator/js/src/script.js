@@ -378,7 +378,7 @@ const calculateSumFromTo = () => {
     startValue = parseInt(startValue);
     n = parseInt(n);
 
-    const whileFn = i => i < n;  
+    const whileFn = i => i <= n;  
     const incrementFn = i => i + 1;
     const numGenerator = () => numsIterator(startValue, whileFn, incrementFn);
 
