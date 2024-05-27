@@ -325,6 +325,13 @@ const calculateVectors = () => {
     resultY.value = result(snd);
 }
 
+/**
+ * Creates an iterator with the specified start value, continuation condition, and increment function.
+ * @param {*} startValue - The initial value of the iterator.
+ * @param {Function} whileFn - The function to determine if the iteration should continue.
+ * @param {Function} incrementFn - The function to get the next value in the iteration.
+ * @returns {Object} - An iterator object.
+ */
 const numsIterator = (startValue, whileFn, incrementFn) => {
     const next = () => {
         const proceed = whileFn(startValue);
