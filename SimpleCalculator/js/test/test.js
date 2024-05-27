@@ -42,7 +42,4 @@ const rangeMin = 1;
 const rangeMax = 100;
 const { smaller, greater } = generateTwoRandomNumbers(rangeMin, rangeMax);
 
-const n = b - a + 1;
-let sumres = (n * (a + b)) / 2;
-
-test(`Sum of numbers from ${smaller} to ${greater} `)(collect(greater)(numsIterator(smaller, i => i <= greater, i => i + 1)) == );
+test(`Sum of numbers from ${smaller} to ${greater} `)(collect(greater)(numsIterator(smaller, i => i <= greater, i => i + 1)) == GaussSum(smaller, greater));
