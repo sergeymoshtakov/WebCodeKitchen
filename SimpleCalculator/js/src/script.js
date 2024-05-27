@@ -347,8 +347,18 @@ const numsIterator = (startValue, whileFn, incrementFn) => {
     };
 };
 
-const collectForSmall = numbers => [...numbers].reduce((a,b) => a + b);
+/**
+ * Sums all the numbers in the provided iterable.
+ * @param {Iterable<number>} numbers - An iterable of numbers to be summed.
+ * @returns {number} - The sum of the numbers.
+ */
+const collectForSmall = numbers => [...numbers].reduce((a, b) => a + b);
 
+/**
+ * Sums the first n numbers from the provided iterable.
+ * @param {number} n - The number of elements to sum.
+ * @returns {Function} - A function that takes an iterable of numbers and returns the sum of the first n numbers.
+ */
 const collectForBig = n => numbers => {
     let sum = 0;
     let count = 0;
@@ -363,34 +373,49 @@ const collectForBig = n => numbers => {
     return sum;
 };
 
+/**
+ * Calculates the sum of numbers in a range specified by input fields and updates the result in the DOM.
+ * If the range is large, it uses a special function to handle large ranges efficiently.
+ * 
+ * The function assumes there are input fields with IDs 'fr-v' and 'to-v' for the start and end values,
+ * and an element with ID 'fr-to-res' to display the result.
+ */
 const calculateSumFromTo = () => {
     const threshold = 1000000;
 
     let startValue = document.getElementById('fr-v').value;
-    let n =  document.getElementById('to-v').value;
+    let n = document.getElementById('to-v').value;
 
-    if(isNaN(startValue) || isNaN(n)){
-        alert("From and to digits must be numerical!")
+    // Check if the inputs are numeric
+    if (isNaN(startValue) || isNaN(n)) {
+        alert("From and to digits must be numerical!");
         document.getElementById('fr-v').value = "";
         document.getElementById('to-v').value = "";
+        return; // Exit the function if the inputs are invalid
     }
 
+    // Parse the input values as integers
     startValue = parseInt(startValue);
     n = parseInt(n);
 
+    // Define the while function and increment function for the iterator
     const whileFn = i => i <= n;  
     const incrementFn = i => i + 1;
+
+    /**
+     * Creates an iterator for numbers from startValue to n.
+     * @returns {Object} - An iterator for the range.
+     */
     const numGenerator = () => numsIterator(startValue, whileFn, incrementFn);
 
     var result = document.getElementById('fr-to-res');
 
-    if(n > threshold){
-        // console.log("we are in big");
+    // Choose the appropriate collection function based on the size of the range
+    if (n > threshold) {
+        // For large ranges, use collectForBig
         result.value = collectForBig(n)(numGenerator());
     } else {
-        // console.log("we are in small");
-        // console.log(...numGenerator());
-        // console.log(collectForSmall(numGenerator()));
+        // For small ranges, use collectForSmall
         result.value = collectForSmall(numGenerator());
     }
 };
