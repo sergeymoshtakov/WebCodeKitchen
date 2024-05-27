@@ -366,12 +366,17 @@ const collectForBig = n => numbers => {
 const calculateSumFromTo = () => {
     const threshold = 1000000;
 
-    const startValue = document.getElementById('fr-v').value;
+    let startValue = document.getElementById('fr-v').value;
     let n =  document.getElementById('to-v').value;
 
     if(isNaN(startValue) || isNaN(n)){
         alert("From and to digits must be numerical!")
+        document.getElementById('fr-v').value = "";
+        document.getElementById('to-v').value = "";
     }
+
+    startValue = parseInt(startValue);
+    n = parseInt(n);
 
     const whileFn = i => i < n;  
     const incrementFn = i => i + 1;
@@ -380,12 +385,12 @@ const calculateSumFromTo = () => {
     var result = document.getElementById('fr-to-res');
 
     if(n > threshold){
-        console.log("we are in big");
+        // console.log("we are in big");
         result.value = collectForBig(n)(numGenerator());
     } else {
-        console.log("we are in small");
-        console.log(...numGenerator());
+        // console.log("we are in small");
+        // console.log(...numGenerator());
         // console.log(collectForSmall(numGenerator()));
-        // result.value = collectForSmall(numGenerator());
+        result.value = collectForSmall(numGenerator());
     }
 };
