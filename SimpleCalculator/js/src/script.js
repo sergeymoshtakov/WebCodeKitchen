@@ -346,3 +346,37 @@ const numsIterator = (startValue, whileFn, incrementFn) => {
         [Symbol.iterator]: () => ({ next })
     };
 };
+
+const collectForSmall = numbers => [...numbers].reduce((a,b) => a + b);
+
+const collectForBig = n => numbers => {
+    let sum = 0;
+    let count = 0;
+    for (let num of numbers) {
+        if (count < n) {
+            sum += num;
+            count++;
+        } else {
+            break;
+        }
+    }
+    return sum;
+};
+
+const calculateSumFromTo = () => {
+    const threshold = 1000000;
+
+    const startValue = document.getElementById('fr-v').value;
+    let n =  document.getElementById('to-v').value;
+    const whileFn = i => i < n;  
+    const incrementFn = i => i + 1;
+    const numGenerator = () => Iterator(startValue, whileFn, incrementFn);
+
+    var result = document.getElementById('fr-to-res').value;
+
+    if(n > threshold){
+        result.value = collectForBig(n)(numGenerator);
+    } else {
+        result.value = collectForSmall(numGenerator);
+    }
+};
