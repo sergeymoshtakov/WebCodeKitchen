@@ -13,3 +13,23 @@ const test = name => bool => {
     }
     document.writeln(str);
 };
+
+/**
+ * Generates two random numbers within a given range, one greater and one smaller.
+ * @param {number} min - The minimum value of the range (inclusive).
+ * @param {number} max - The maximum value of the range (inclusive).
+ * @returns {Object} - An object containing two properties: smaller and greater.
+ */
+function generateTwoRandomNumbers(min, max) {
+    const num1 = Math.floor(Math.random() * (max - min + 1)) + min;
+    const num2 = Math.floor(Math.random() * (max - min + 1)) + min;
+    
+    if (num1 === num2) {
+        return generateTwoRandomNumbers(min, max); // Ensure the numbers are different
+    }
+
+    return {
+        smaller: Math.min(num1, num2),
+        greater: Math.max(num1, num2)
+    };
+}
