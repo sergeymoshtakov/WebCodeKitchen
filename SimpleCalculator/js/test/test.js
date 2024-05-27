@@ -33,3 +33,7 @@ test("Modus of 49 by 5 ")(mod(49, 5) === 4);
  * @param {boolean} bool - The result of the power operation.
  */
 test("Pow of 7 by 2 ")(pow(7)(2) === 49);
+
+test("Sum of numbers from 1 to 10 ")(collect(10)(numsIterator(1, i => i <= 10, i => i + 1)) == 55);
+
+test("Sum of numbers from 1 to 100 ")(collect(10)(numsIterator(1, i => i <= 100, i => i + 1)) == 5050);
