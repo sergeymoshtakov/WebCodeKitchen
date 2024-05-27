@@ -425,3 +425,14 @@ const calculateSumFromTo = () => {
     // Calculate the result value
     result.value = collect(n)(numGenerator());
 };
+
+/**
+ * Calculates the sum of all integers between two numbers (inclusive) using Gauss's formula.
+ * @param {number} a - The smaller number.
+ * @param {number} b - The greater number.
+ * @returns {number} - The sum of all integers between a and b (inclusive).
+ */
+function GaussSum(a, b) {
+    const n = b - a + 1;
+    return (n * (a + b)) / 2;
+}

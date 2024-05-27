@@ -37,3 +37,12 @@ test("Pow of 7 by 2 ")(pow(7)(2) === 49);
 test("Sum of numbers from 1 to 10 ")(collect(10)(numsIterator(1, i => i <= 10, i => i + 1)) == 55);
 
 test("Sum of numbers from 1 to 100 ")(collect(10)(numsIterator(1, i => i <= 100, i => i + 1)) == 5050);
+
+const rangeMin = 1;
+const rangeMax = 100;
+const { smaller, greater } = generateTwoRandomNumbers(rangeMin, rangeMax);
+
+const n = b - a + 1;
+let sumres = (n * (a + b)) / 2;
+
+test(`Sum of numbers from ${smaller} to ${greater} `)(collect(greater)(numsIterator(smaller, i => i <= greater, i => i + 1)) == );
