@@ -368,15 +368,24 @@ const calculateSumFromTo = () => {
 
     const startValue = document.getElementById('fr-v').value;
     let n =  document.getElementById('to-v').value;
+
+    if(isNaN(startValue) || isNaN(n)){
+        alert("From and to digits must be numerical!")
+    }
+
     const whileFn = i => i < n;  
     const incrementFn = i => i + 1;
-    const numGenerator = () => Iterator(startValue, whileFn, incrementFn);
+    const numGenerator = () => numsIterator(startValue, whileFn, incrementFn);
 
-    var result = document.getElementById('fr-to-res').value;
+    var result = document.getElementById('fr-to-res');
 
     if(n > threshold){
+        console.log("we are in big");
         result.value = collectForBig(n)(numGenerator());
     } else {
-        result.value = collectForSmall(numGenerator());
+        console.log("we are in small");
+        console.log(...numGenerator());
+        // console.log(collectForSmall(numGenerator()));
+        // result.value = collectForSmall(numGenerator());
     }
 };
