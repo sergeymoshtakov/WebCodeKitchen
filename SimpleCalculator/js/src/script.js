@@ -373,6 +373,19 @@ const collectForBig = n => numbers => {
     return sum;
 };
 
+const collect = n => numbers => {
+    const threshold = 1000000;
+
+    // Choose the appropriate collection function based on the size of the range
+    if (n > threshold) {
+        // For large ranges, use collectForBig
+        return collectForBig(n)(numbers);
+    } else {
+        // For small ranges, use collectForSmall
+        return collectForSmall(numbers);
+    }
+};
+
 /**
  * Calculates the sum of numbers in a range specified by input fields and updates the result in the DOM.
  * If the range is large, it uses a special function to handle large ranges efficiently.
@@ -381,7 +394,6 @@ const collectForBig = n => numbers => {
  * and an element with ID 'fr-to-res' to display the result.
  */
 const calculateSumFromTo = () => {
-    const threshold = 1000000;
 
     let startValue = document.getElementById('fr-v').value;
     let n = document.getElementById('to-v').value;
@@ -410,12 +422,6 @@ const calculateSumFromTo = () => {
 
     var result = document.getElementById('fr-to-res');
 
-    // Choose the appropriate collection function based on the size of the range
-    if (n > threshold) {
-        // For large ranges, use collectForBig
-        result.value = collectForBig(n)(numGenerator());
-    } else {
-        // For small ranges, use collectForSmall
-        result.value = collectForSmall(numGenerator());
-    }
+    // Calculate the result value
+    result.value = collect(n)(numGenerator());
 };
