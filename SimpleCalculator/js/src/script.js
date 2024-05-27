@@ -324,3 +324,18 @@ const calculateVectors = () => {
     resultX.value = result(fst);
     resultY.value = result(snd);
 }
+
+const numsIterator = (startValue, whileFn, incrementFn) => {
+    const next = () => {
+        const proceed = whileFn(startValue);
+        let value = undefined;
+        if (proceed) {
+            value = startValue;
+            startValue = incrementFn(startValue);
+        }
+        return { value: value, done: !proceed };
+    };
+    return {
+        [Symbol.iterator]: () => ({ next })
+    };
+};
