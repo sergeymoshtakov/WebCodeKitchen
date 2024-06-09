@@ -13,3 +13,9 @@ Here we added a possibility to calculate logarithm and imaginary numbers.
 ![Result - 3](SimpleCalculator/images/result-3.jpg "Result - 3")
 
 Here we have added possible operations with vectors.
+
+Here is link to test it - https://sergeymoshtakov.github.io/WebCodeKitchen/SimpleCalculator/
+
+The final version of simple calculator.
+
+![Result - 4](SimpleCalculator/images/result-4.jpg "Result - 4")
