@@ -437,19 +437,19 @@ function GaussSum(a, b) {
     return (n * (a + b)) / 2;
 }
 
-const convertToCurrencies = async () => {
+const convertToFrancs = async () => {
     const exchangeRate = await getExchangeRate();
-    const dollars = document.getElementById('us-dol').value;
+    const dollars = document.getElementById('us-dol-1').value;
 
     if (isNaN(dollars)) {
         alert("From and to digits must be numerical!");
-        document.getElementById('us-dol').value = "";
+        document.getElementById('us-dol-1').value = "";
         return;
     }
 
     const francs = dollars * exchangeRate;
 
-    var result = document.getElementById('sw-fr');
+    var result = document.getElementById('sw-fr-1');
 
     result.value = String(francs);
 };
