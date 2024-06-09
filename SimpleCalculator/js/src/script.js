@@ -442,7 +442,7 @@ const convertToFrancs = async () => {
     const dollars = document.getElementById('us-dol-1').value;
 
     if (isNaN(dollars)) {
-        alert("From and to digits must be numerical!");
+        alert("Dollar value must be nummerical!");
         document.getElementById('us-dol-1').value = "";
         return;
     }
@@ -452,4 +452,21 @@ const convertToFrancs = async () => {
     var result = document.getElementById('sw-fr-1');
 
     result.value = String(francs);
+};
+
+const convertToDollars = async () => {
+    const exchangeRate = await getExchangeRate();
+    const francs = document.getElementById('sw-fr-2').value;
+
+    if (isNaN(francs)) {
+        alert("Swiss Franc value must be nummerical!");
+        document.getElementById('sw-fr-2').value = "";
+        return;
+    }
+
+    const dollars = francs / exchangeRate;
+
+    var result = document.getElementById('us-dol-2');
+
+    result.value = String(result);
 };
