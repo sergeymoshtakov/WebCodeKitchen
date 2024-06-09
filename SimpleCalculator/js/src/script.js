@@ -436,3 +436,20 @@ function GaussSum(a, b) {
     const n = b - a + 1;
     return (n * (a + b)) / 2;
 }
+
+const convertToCurrencies = async () => {
+    const exchangeRate = await getExchangeRate();
+    const dollars = document.getElementById('us-dol').value;
+
+    if (isNaN(dollars)) {
+        alert("From and to digits must be numerical!");
+        document.getElementById('us-dol').value = "";
+        return;
+    }
+
+    const francs = dollars * exchangeRate;
+
+    var result = document.getElementById('sw-fr');
+
+    result.value = String(francs);
+};
