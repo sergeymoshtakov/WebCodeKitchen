@@ -437,6 +437,9 @@ function GaussSum(a, b) {
     return (n * (a + b)) / 2;
 }
 
+/**
+ * Calculates amount of Swiss francs from given amount of US dollars.
+ */
 const convertToFrancs = async () => {
     const exchangeRate = await getExchangeRate();
     const dollars = document.getElementById('us-dol-1').value;
@@ -454,6 +457,9 @@ const convertToFrancs = async () => {
     result.value = String(francs);
 };
 
+/**
+ * Calculates amount of Us dollars from given amount of Swiss francs.
+ */
 const convertToDollars = async () => {
     const exchangeRate = await getExchangeRate();
     const francs = document.getElementById('sw-fr-2').value;
