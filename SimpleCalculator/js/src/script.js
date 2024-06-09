@@ -468,5 +468,5 @@ const convertToDollars = async () => {
 
     var result = document.getElementById('us-dol-2');
 
-    result.value = String(result);
+    result.value = String(dollars);
 };
