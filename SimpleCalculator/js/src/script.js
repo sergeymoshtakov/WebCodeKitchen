@@ -83,8 +83,8 @@ const calculate = () => {
     }
     // checking the right input
 
-    var leftDigit = parseFloat(left.value);
-    var rightDigit = parseFloat(right.value);
+    var leftDigit = Number(left.value);
+    var rightDigit = Number(right.value);
     var sign = document.getElementById('signs').value;
     var result = document.getElementById('result-digit');
     if(sign === "+"){
@@ -122,8 +122,8 @@ const calculateLogorithm = () => {
     }
     // checking the right input
 
-    var baseDigit = parseFloat(base.value);
-    var numberDigit = parseFloat(number.value);
+    var baseDigit = Number(base.value);
+    var numberDigit = Number(number.value);
 
     // checking the right input
     if(baseDigit <= 0 || baseDigit === 1){
@@ -195,10 +195,10 @@ const calculateImaginaryNumbers = () => {
     }
     // checking the right input
 
-    var leftRealDigit = parseFloat(leftReal.value);
-    var leftImaginaryDigit = parseFloat(leftImaginary.value);
-    var rightRealDigit = parseFloat(rightReal.value);
-    var rightImaginaryDigit = parseFloat(rightImaginary.value);
+    var leftRealDigit = Number(leftReal.value);
+    var leftImaginaryDigit = Number(leftImaginary.value);
+    var rightRealDigit = Number(rightReal.value);
+    var rightImaginaryDigit = Number(rightImaginary.value);
 
     var sign = document.getElementById('imaginary-signs').value;
 
@@ -297,10 +297,10 @@ const calculateVectors = () => {
         document.getElementById('v2-y').value = "";
     }
 
-    leftX = parseFloat(leftX);
-    leftY = parseFloat(leftY);
-    rightX = parseFloat(rightX);
-    rightY = parseFloat(rightY);
+    leftX = Number(leftX);
+    leftY = Number(leftY);
+    rightX = Number(rightX);
+    rightY = Number(rightY);
 
     var sign = document.getElementById('vectors-signs').value;
 
@@ -407,8 +407,8 @@ const calculateSumFromTo = () => {
     }
 
     // Parse the input values as integers
-    startValue = parseInt(startValue);
-    n = parseInt(n);
+    startValue = Number(startValue);
+    n = Number(n);
 
     // Define the while function and increment function for the iterator
     const whileFn = i => i <= n;  
@@ -450,6 +450,8 @@ const convertToFrancs = async () => {
         return;
     }
 
+    dollars = Number(dollars);
+
     const francs = dollars * exchangeRate;
 
     var result = document.getElementById('sw-fr-1');
@@ -469,6 +471,8 @@ const convertToDollars = async () => {
         document.getElementById('sw-fr-2').value = "";
         return;
     }
+
+    francs = Number(francs);
 
     const dollars = francs / exchangeRate;
 
