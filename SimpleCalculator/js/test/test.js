@@ -56,3 +56,27 @@ const { smaller, greater } = generateTwoRandomNumbers(rangeMin, rangeMax);
  * Expected result: The sum calculated using Gauss's formula.
  */
 test(`Sum of numbers from ${smaller} to ${greater}`)(collect(greater - smaller + 1)(numsIterator(smaller, i => i <= greater, i => i + 1)) == GaussSum(smaller, greater));
+
+/**
+ * Writes a test message for the addition operation to the document.
+ * @param {boolean} bool - The result of the addition operation.
+ */
+test("Addition of random numbers ")(add(greater)(smaller) === greater + smaller); 
+
+/**
+ * Writes a test message for the subtraction operation to the document.
+ * @param {boolean} bool - The result of the subtraction operation.
+ */
+test("Substraction of random numbers ")(substract(greater)(smaller) === greater - smaller);
+
+/**
+ * Writes a test message for the multiplication operation to the document.
+ * @param {boolean} bool - The result of the multiplication operation.
+ */
+test("Multiplication of random numbers ")(multiply(greater)(smaller) === greater * smaller);
+
+/**
+ * Writes a test message for the division operation to the document.
+ * @param {boolean} bool - The result of the division operation.
+ */
+test("Division of random numbers ")(devide(greater)(smaller) === Math.floor(greater / smaller)); 
