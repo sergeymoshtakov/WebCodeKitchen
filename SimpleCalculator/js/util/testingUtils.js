@@ -11,7 +11,12 @@ const test = name => bool => {
     } else {
         str += " not passed";
     }
-    document.write("<p>" + str + "</p>");
+    if(bool){
+        document.write("<p style='color:green'>" + str + "</p>");
+    }else{
+        document.write("<p style='color:red'>" + str + "</p>");
+    }
+    
 };
 
 /**
