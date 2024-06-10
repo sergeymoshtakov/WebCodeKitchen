@@ -111,3 +111,13 @@ console.log(
     collect(6)(oddNumbers()) === 36 &&
     collect(_x)(oddNumbers()) === _x * _x
 );
+
+// document.write(Boolean(0));
+
+// const value = "0";
+
+// document.write((value ? true : false) !== (value == true ? true : false));
+
+const value = {};
+
+document.write((({} == value) === false) && (({} > value) === false) && (({} >= value) === true));
