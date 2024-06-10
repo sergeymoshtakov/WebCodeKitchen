@@ -79,4 +79,4 @@ test("Multiplication of random numbers ")(multiply(greater)(smaller) === greater
  * Writes a test message for the division operation to the document.
  * @param {boolean} bool - The result of the division operation.
  */
-test("Division of random numbers ")(devide(greater)(smaller) === Math.floor(greater / smaller)); 
+test("Division of random numbers ")(devide(greater)(smaller) === greater / smaller); 
