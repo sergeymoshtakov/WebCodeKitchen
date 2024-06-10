@@ -67,3 +67,17 @@ footer{
     background-color: rgb(255, 170, 0);
     text-align: center;
 }
+
+.testing-link{
+    color: blue;
+    text-decoration: none;
+}
+
+.testing-link:hover {
+    text-decoration: underline; 
+    color: darkblue; 
+}
+
+.testing-link:visited {
+    color: purple;
+}
