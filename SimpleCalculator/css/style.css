@@ -52,6 +52,11 @@ main{
     background-color: rgb(255, 170, 0);
 }
 
+.calculate-button:hover{
+    background-color: rgb(255, 140, 0);
+    color: blue;
+}
+
 .vector{
     display: flex;
     flex-direction: column;
