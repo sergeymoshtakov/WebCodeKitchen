@@ -112,12 +112,12 @@ console.log(
     collect(_x)(oddNumbers()) === _x * _x
 );
 
-// document.write(Boolean(0));
+document.write(Boolean(0));
 
-// const value = "0";
+const value = "0";
 
-// document.write((value ? true : false) !== (value == true ? true : false));
+document.write((value ? true : false) !== (value == true ? true : false));
 
-const value = {};
+value = {};
 
 document.write((({} == value) === false) && (({} > value) === false) && (({} >= value) === true));
