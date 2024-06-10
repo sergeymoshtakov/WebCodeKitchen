@@ -6,16 +6,16 @@
  */
 const test = name => bool => {
     let str = name;
+    let color = "";
     if (bool) {
         str += " passed";
+        color = "green";
     } else {
         str += " not passed";
+        color = "red";
     }
-    if(bool){
-        document.write("<p style='color:green'>" + str + "</p>");
-    }else{
-        document.write("<p style='color:red'>" + str + "</p>");
-    }
+
+    document.write("<p style='color:" + color + "'>" + str + "</p>");
     
 };
 
